@@ -87,7 +87,7 @@ categories: 环境搭建
 
   ![创建博客项目2](/img/GitHubPages+Hugo构建个人博客/创建博客项目2.png)
 
-- 选择完主题后，访问仓库名就可以访问GitHub Pages主页了
+- 选择完主题后，访问仓库名就可以访问GitHub Pages主页了哈哈哈哈
 
 ### 2、GitHub加速
 
