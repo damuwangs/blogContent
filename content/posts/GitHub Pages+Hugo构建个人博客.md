@@ -1,6 +1,6 @@
 ---
 title: "GitHub Pages+Hugo构建个人博客"
-date: 2019-05-12 23:20:00
+date: 2021-06-14 18:20:00
 tags: [编程]
 categories: 环境搭建
 ---
@@ -57,7 +57,7 @@ categories: 环境搭建
 
   `具体hugo的配置还没仔细研究，本篇就简单介绍一下大体的搭建流程，以后可能会写一篇hugo配置/开发相关的`
 
-### 5、本地编译
+### 5、本地预览
 
 - 启动 Hugo 预览服务器，构建站点内容到内存中并在检测到文件更改后重新渲染
 
@@ -77,7 +77,7 @@ categories: 环境搭建
 
 # GitHub配置
 
-### 1、仓库配置
+### 1、创建仓库
 
 - 创建一个新仓库，仓库需要命名为xxx.github.io，一个账户只能创建一个GitHub Pages
 
@@ -87,11 +87,34 @@ categories: 环境搭建
 
   ![创建博客项目2](/img/GitHubPages+Hugo构建个人博客/创建博客项目2.png)
 
-- 选择完主题后，访问仓库名就可以访问GitHub Pages主页了哈哈哈哈
+- 选择完主题后，访问仓库名就可以访问GitHub Pages主页了
 
 ### 2、GitHub加速
 
+- 因为同步GitHub经常会出现网络超时的错误，所以在谷歌找了个GitHub加速插件
+
+  这个插件就是在GitHub仓库下载旁边新增了一个加速的按钮，选择国内镜像的仓库地址就不会出现网络超时的问题了
+
+- 插件地址：<https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/mfnkflidjnladnkldfonnaicljppahpg>
+
+  GitHub地址：<https://github.com/fhefh2015/Fast-GitHub>
+
 ### 3、提交和版本同步
+
+- 进入站点根目录执行命令执行编译，创建public目录生成静态html项目
+
+  ```
+  # 默认在当前文件夹下生成public文件夹
+  hugo
+  # 参数d可以自定义生成路径
+  hugo -d ../damuwangs.github.io
+  ```
+
+- 将生成后的静态html项目提交到xxx.github.io仓库，访问xxx.github.io就可以看到更新好的网页了
+
+# 参考资料
+
+> <https://www.waynerv.com/posts/setup-blog-with-hugo-and-github-pages>
 
 
 
