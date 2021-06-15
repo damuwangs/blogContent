@@ -10,6 +10,6 @@ git push origin main
 cd ../damuwangs.github.io
 git add .
 git commit -m "damuwangs.github.io %date%" 
-git push origin main
+git push origin gh-pages
 
 pause
