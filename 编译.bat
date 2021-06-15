@@ -3,13 +3,13 @@ hugo -d ../damuwangs.github.io
 
 :: 提交blogContent
 git add .
-git commit -m "blogContent %date%" 
+git commit -m "blogContent %date% %time%" 
 git push origin main
 
 :: 切换到damuwangs.github.io文件夹
 cd ../damuwangs.github.io
 git add .
-git commit -m "damuwangs.github.io %date%" 
-git push origin gh-pages
+git commit -m "damuwangs.github.io %date% %time%" 
+git push origin main
 
 pause
