@@ -1,0 +1,1 @@
+hugo -d ../damuwangs.github.io
