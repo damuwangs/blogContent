@@ -1,6 +1,6 @@
 ---
 title: "GitHub Pages+Hugo构建个人博客"
-date: 2021-06-14 18:20:00
+date: "2021-06-15"
 tags: [编程]
 categories: 环境搭建
 ---
