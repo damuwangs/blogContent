@@ -7,7 +7,7 @@ categories: 环境搭建
 
 # hugo配置
 
-### 1、安装
+## 1、安装
 
 - 下载地址：<https://github.com/gohugoio/hugo/releases>
 
@@ -18,7 +18,7 @@ categories: 环境搭建
 
   ![查看hugo版本](/img/GitHubPages+Hugo构建个人博客/查看hugo版本.png)
 
-### 2、配置环境变量
+## 2、配置环境变量
 
 - 在系统变量Path后面追加一条，为hugo.exe的解压地址我的在D盘
 
@@ -26,7 +26,7 @@ categories: 环境搭建
   D:\hugo_0.83.1_Windows-64bit
   ```
 
-### 3、项目创建
+## 3、项目创建
 
 - 通过hugo命令创建站点目录并切换到该目录
 
@@ -39,7 +39,7 @@ categories: 环境搭建
 
   ![hugo项目结构](/img/GitHubPages+Hugo构建个人博客/hugo项目结构.png)
 
-### 4、主题配置
+## 4、主题配置
 
 - 主题网站：<https://themes.gohugo.io/>
 
@@ -57,7 +57,7 @@ categories: 环境搭建
 
   `具体hugo的配置还没仔细研究，本篇就简单介绍一下大体的搭建流程，以后可能会写一篇hugo配置/开发相关的`
 
-### 5、本地预览
+## 5、本地预览
 
 - 启动 Hugo 预览服务器，构建站点内容到内存中并在检测到文件更改后重新渲染
 
@@ -65,7 +65,7 @@ categories: 环境搭建
   hugo server
   ```
 
-### 6、内容发布
+## 6、内容发布
 
 - 在站点目录下有一个content文件夹，在该文件夹下创建一个posts，posts下创建.md格式的文章就可以自动识别发布了
 
@@ -77,7 +77,7 @@ categories: 环境搭建
 
 # GitHub配置
 
-### 1、创建仓库
+## 1、创建仓库
 
 - 创建一个新仓库，仓库需要命名为xxx.github.io，一个账户只能创建一个GitHub Pages
 
@@ -89,7 +89,7 @@ categories: 环境搭建
 
 - 选择完主题后，访问仓库名就可以访问GitHub Pages主页了
 
-### 2、GitHub加速
+## 2、GitHub加速
 
 - 因为同步GitHub经常会出现网络超时的错误，所以在谷歌找了个GitHub加速插件
 
@@ -99,7 +99,7 @@ categories: 环境搭建
 
   GitHub地址：<https://github.com/fhefh2015/Fast-GitHub>
 
-### 3、提交和版本同步
+## 3、提交和版本同步
 
 - 进入站点根目录执行命令执行编译，创建public目录生成静态html项目
 
@@ -114,7 +114,7 @@ categories: 环境搭建
 
 # 参考资料
 
-> <https://www.waynerv.com/posts/setup-blog-with-hugo-and-github-pages>
+> [使用 Hugo 和 GitHub Pages 部署个人博客 | Shall We Code? (waynerv.com)](https://www.waynerv.com/posts/setup-blog-with-hugo-and-github-pages/)
 
 
 
