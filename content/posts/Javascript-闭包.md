@@ -1,5 +1,5 @@
 ---
-title: "Javascript-闭包"
+title: "JavaScript-闭包"
 date: "2021-06-21"
 tags: [编程]
 categories: 前端

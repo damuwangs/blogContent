@@ -1,5 +1,5 @@
 ---
-title: "Javascript - 原型链"
+title: "JavaScript-原型链"
 date: "2021-06-24"
 tags: [编程]
 categories: 前端
