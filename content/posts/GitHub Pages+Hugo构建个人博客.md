@@ -12,11 +12,11 @@ categories: 环境搭建
 - 下载地址：<https://github.com/gohugoio/hugo/releases>
 
 
-- 我使用的版本：![hugo下载版本](/img/GitHubPages+Hugo构建个人博客/hugo下载版本.png)
+- 我使用的版本：![](/img/GitHubPages+Hugo构建个人博客/hugo下载版本.png)
 
 - 解压后即可使用hugo命令，不过只能在当前文件夹下使用，所以需要配置环境变量
 
-  ![查看hugo版本](/img/GitHubPages+Hugo构建个人博客/查看hugo版本.png)
+  ![](/img/GitHubPages+Hugo构建个人博客/查看hugo版本.png)
 
 ## 2、配置环境变量
 
@@ -37,7 +37,7 @@ categories: 环境搭建
 
   目录结构如下，此时如果运行的话浏览器会白屏，因为此时只是一个空的站点需要下载主题后才能看到内容
 
-  ![hugo项目结构](/img/GitHubPages+Hugo构建个人博客/hugo项目结构.png)
+  ![](/img/GitHubPages+Hugo构建个人博客/hugo项目结构.png)
 
 ## 4、主题配置
 
@@ -69,7 +69,7 @@ categories: 环境搭建
 
 - 在站点目录下有一个content文件夹，在该文件夹下创建一个posts，posts下创建.md格式的文章就可以自动识别发布了
 
-  ![hugo项目结构2](/img/GitHubPages+Hugo构建个人博客/hugo项目结构2.png)
+  ![](/img/GitHubPages+Hugo构建个人博客/hugo项目结构2.png)
 
 - 同理图片静态资源需要放在站点根目录static下，内容中图片引用也是以static为根目录进行读取的
 
@@ -81,11 +81,11 @@ categories: 环境搭建
 
 - 创建一个新仓库，仓库需要命名为xxx.github.io，一个账户只能创建一个GitHub Pages
 
-  ![创建博客项目](/img/GitHubPages+Hugo构建个人博客/创建博客项目.png)
+  ![](/img/GitHubPages+Hugo构建个人博客/创建博客项目.png)
 
 - 创建好之后顶部点击settings，左侧菜单栏选择pages，点击choose a theme选择一个官方指定主题
 
-  ![创建博客项目2](/img/GitHubPages+Hugo构建个人博客/创建博客项目2.png)
+  ![](/img/GitHubPages+Hugo构建个人博客/创建博客项目2.png)
 
 - 选择完主题后，访问仓库名就可以访问GitHub Pages主页了
 

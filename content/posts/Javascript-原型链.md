@@ -37,7 +37,7 @@ categories: 前端
 
   创建了自定义构造函数之后，其原型对象默认只会取得constructor属性，至于其它方法，则都是从Object继承而来。当调用构造函数创建一个新实例后，该实例内部将包含一个指针（内部属性）____proto____指向构造函数的原型对象，需要明确的是，这个连接存在与实例和构造函数的原型之间，而不是存在与实例与构造函数之间
 
-  ![hugo下载版本](/img/Javascript-原型链/原型关系.png)
+  ![](/img/JavaScript-原型链/原型关系.png)
 
   上图展示了Person构造函数、Person的原型属性以及Person现有两个实例之间的关系。在此，Person.prototype指向了原型对象，而Person.prototype.constructor又指回了Person。原型对象中除了包含constructor属性之外，还包括后来添加的其它属性。Person的每个实例person1和person2都包含一个内部属性____proto____，该属性仅仅指向了Person.prototype，换句话说，它们与构造函数没有直接关系。此外，要格外注意的是，虽然这两个实例都不包含属性和方法，但我们却可以调用person1.sayName。这是通过查找对象属性的过程来实现的
 
@@ -73,7 +73,7 @@ categories: 前端
 
 - ## 理解原型链
 
-  ![hugo下载版本](/img/Javascript-原型链/原型链图示.png)
+  ![](/img/JavaScript-原型链/原型链图示.png)
 
   每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针。那么，假如我们让原型对象等于另一个类型的实例，结果会怎么样呢？显然，此时的原型对象将包含一个指向另一个原型的指针，相应的，另一个原型中也包含指向另一个构造函数的指针。假如另一个原型又是另一个类型的实例，那么上述关系依然成立，如此层层递进，就够成了实例与原型的链条。这就是所谓原型链的基本概念
 
@@ -103,7 +103,7 @@ categories: 前端
 
   以上代码定义了两个类型：SuperType和SubType。每个类型分别有一个属性和一个方法。它们的主要区别是SubType继承了SuperType，而继承时通过创建SuperType的实例，并将实例赋值给SubType.prototype实现的。实现的本质是重写原型对象，代之以一个新类型的实例。换句话说，原来存在于SuperType的实例中的所有属性和方法，现在也存在与于SubType中了。在确立了继承关系之后，我们给SubType.prototype添加了一个方法，这样就继承了SuperType的属性和方法的基础上又添加了一个新方法
 
-  ![hugo下载版本](/img/Javascript-原型链/原型链.png)
+  ![](/img/JavaScript-原型链/原型链.png)
 
   在上面代码中，我们没有使用SubType默认提供的原型，而是给它换了一个新的原型，这个新原型就是SuperType的实例。于是，新原型不仅具有作为一个SuperType的实例所拥有的全部属性和方法，而且内部还有一个指针，指向了SuperType的原型。最终结果就是这样：instance指向SubType的原型，SubType的原型又指向了SuperType的原型。getSuperValue()方法仍然还在SuperType.prototype中，但prototype则位于subType.prototype中。这是因为prototype是一个实例属性，而getSuperValue()则时一个原型方法。既然SubType.prototype现在是superType的实例，那么prototype当然就位于该实例中了
 
@@ -119,7 +119,7 @@ categories: 前端
 
   所有引用类型默认都继承了Object，而这个继承也是通过原型链实现的。所有函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针，指向Object.prototype。这也正是所有自定义类型都会继承toString()、valueOf()等默认方法的根本原因。所以上面展示的原型链中还应包括另外一个继承层次
 
-  ![hugo下载版本](/img/Javascript-原型链/默认原型.png)
+  ![](/img/JavaScript-原型链/默认原型.png)
 
   一句话，SubType继承了SuperType，而SuperType继承了Object。当调用instance.toString()时，实际上调用的时保存在Object.prototype中的那个方法
 
