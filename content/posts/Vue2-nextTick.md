@@ -253,8 +253,9 @@ export default {
 
 # 参考资料
 
-> https://segmentfault.com/a/1190000012861862
+> [Vue.nextTick 的原理和用途](https://segmentfault.com/a/1190000012861862)
 >
-> http://www.ruanyifeng.com/blog/2014/10/event-loop.html
+> [JavaScript 运行机制详解：再谈Event Loop](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
 >
-> https://segmentfault.com/a/1190000017204460
+> [浏览器进程线程、Web Workers、Event Loop 图解](https://segmentfault.com/a/1190000017204460)
+

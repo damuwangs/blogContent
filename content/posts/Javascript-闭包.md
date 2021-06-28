@@ -281,14 +281,15 @@ categories: 前端
 
 # 参考资料
 
-> http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
+> [学习Javascript闭包（Closure）](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
 >
-> https://segmentfault.com/a/1190000000652891
+> [详解JS闭包](https://segmentfault.com/a/1190000000652891)
 >
-> https://www.cnblogs.com/yunfeifei/p/4019504.html
+> [全面理解Javascript闭包和闭包的几种写法及用途](https://www.cnblogs.com/yunfeifei/p/4019504.html)
 >
-> https://juejin.cn/post/6844903910902087688
+> [javascript之闭包七（闭包的应用场景）](https://juejin.cn/post/6844903910902087688)
 >
-> https://juejin.cn/post/6844903841888993287
+> [闭包与setTimeout](https://juejin.cn/post/6844903841888993287)
 >
-> https://blog.csdn.net/qq_21132509/article/details/80694517
+> [对JS闭包的理解及常见应用场景](https://blog.csdn.net/qq_21132509/article/details/80694517)
+
