@@ -2,7 +2,7 @@
 title: "JavaScript-防抖、节流"
 date: "2021-07-16"
 tags: [编程]
-categories: 前端
+categories: JavaScript
 ---
 
 # 防抖

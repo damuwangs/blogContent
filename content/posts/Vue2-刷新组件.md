@@ -2,7 +2,7 @@
 title: "Vue2-刷新组件"
 date: "2021-06-28"
 tags: [编程]
-categories: 前端
+categories: VUE
 
 ---
 

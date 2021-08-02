@@ -2,7 +2,7 @@
 title: "Vue3-组合式API"
 date: "2021-07-05"
 tags: [编程]
-categories: 前端
+categories: VUE
 ---
 
 # 概念
