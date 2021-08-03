@@ -35,7 +35,3 @@ categories: DEMO
 
 - # 算法
 
-# 参考资料
-
-> [如何理解animation-fill-mode及其使用？](https://segmentfault.com/q/1010000003867335)
-
