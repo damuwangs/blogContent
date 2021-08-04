@@ -15,7 +15,8 @@ theme = "diary"
     lineNos = false
     lineNumbersInTable = true
     noClasses = true
-    style = "perldoc"
+    # 代码高亮style 参考：https://xyproto.github.io/splash/docs/all.html
+    style = "dracula"
     tabWidth = 4
 
 [params]

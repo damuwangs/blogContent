@@ -22,14 +22,14 @@ categories: VUE
 
 index.html中
 
-```
+```html
 <div id="app"></div>
   <div id="teleport-target"></div>
 <script type="module" src="/src/main.js"></script>
 ```
 src/components/HelloWorld.vue中，添加如下，留意to属性跟上面的id选择器一致
 
-```
+```html
  <button @click="showToast" class="btn">打开 toast</button>
   <!-- to 属性就是目标位置 -->
   <teleport to="#teleport-target">
@@ -39,7 +39,7 @@ src/components/HelloWorld.vue中，添加如下，留意to属性跟上面的id�
   </teleport>
 ```
 
-```
+```js
 import { ref } from 'vue';
 export default {
   setup() {
@@ -73,13 +73,13 @@ export default {
 
 接下来我们以一个modal组件为例
 
-```
+```html
 <div id="app"></div>
 <div id="modal-container"></div>
 <script type="module" src="/src/main.js"></script>
 ```
 
-```
+```html
 <teleport to="#modal-container">
   <!-- use the modal component, pass in the prop -->
   <modal :show="showModal" @close="showModal = false">
@@ -90,7 +90,7 @@ export default {
 </teleport>
 ```
 
-```
+```js
 import { ref } from 'vue';
 import Modal from './Modal.vue';
 export default {

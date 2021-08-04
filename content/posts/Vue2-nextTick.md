@@ -25,7 +25,7 @@ categories: VUE
 
 简单来说，Vue 在修改数据后，视图不会立刻更新，而是等**同一事件循环**中的所有数据变化完成之后，再统一进行视图更新
 
-```
+```js
 //改变数据
 vm.message = 'changed'
 
@@ -67,7 +67,7 @@ Vue.nextTick(function(){
 
 > 官方文档说明：注意 mounted 不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 vm.$nextTick 替换掉 mounted
 
-```
+```js
 created(){
     let that=this
     that.$nextTick(
@@ -81,7 +81,7 @@ created(){
 
 2. 当项目中你想在改变 DOM 元素的数据后基于新的 dom 做点什么，对新 DOM 一系列的 js 操作都需要放进 Vue.nextTick()的回调函数中；通俗的理解是：更改数据后当你想立即使用 js 操作新的视图的时候需要使用它
 
-```
+```vue
 <template>
     <div class="app">
         <div ref="msgDiv">{{msg}}</div>
@@ -127,7 +127,7 @@ export default {
 
 # 通过一个实例理解nextTick
 
-```
+```vue
 <template>
     <div class="content">
         <ul>

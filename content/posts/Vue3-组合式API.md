@@ -54,7 +54,7 @@ categories: VUE
 
 ### app.vue
 
-```
+```vue
 <template>
   <div id="app">    
     <Search @search="search"/>
@@ -85,7 +85,7 @@ export default {
 
 ### app.js
 
-```
+```js
 import { ref} from "@vue/composition-api";
 export default function app(props, context) {
   let listData = ref([]) // 定义响应式变量,切记下方赋值/取值时修改的是.value属性！
@@ -119,7 +119,7 @@ export default function app(props, context) {
 
 ### panel.vue
 
-```
+```vue
 <template>
   <div class="weui-panel weui-panel_access">
     <div v-for="(n,index) in listData" :key="index" class="weui-panel__bd">
@@ -158,7 +158,7 @@ export default {
 
 ### panel.js
 
-```
+```js
 export default function pane(props, context) {
   const loadMore = () => {
     context.emit("loadMore")
@@ -171,7 +171,7 @@ export default function pane(props, context) {
 
 ### search.vue
 
-```
+```vue
 <template>
   <div :class="['weui-search-bar', {'weui-search-bar_focusing':isFocus}]" id="searchBar">
     <form class="weui-search-bar__form">
@@ -214,7 +214,7 @@ export default {
 
 ### search.js
 
-```
+```js
 import {reactive, toRefs, watch} from "@vue/composition-api";
 export default function search(props, context) {
   const search = reactive({
@@ -256,13 +256,13 @@ export default function search(props, context) {
 
   响应式的，当传入新的 prop 时，它将被更新
 
-  ```
+  ```js
   export default {
     props: {
       title: String
     },
     setup(props) {
-      console.log(props.title)
+      console.log(props.title)j
     }
   }
   ```
@@ -271,7 +271,7 @@ export default function search(props, context) {
 
   context是一个普通的 JavaScript 对象，它暴露组件的三个 property
 
-  ```
+  ```js
   export default {
     setup(props, context) {
       // Attribute (非响应式对象)
@@ -290,7 +290,7 @@ export default function search(props, context) {
 
   setup注册生命周期钩子
 
-  ```
+  ```js
   import {onMounted} from "@vue/composition-api";
   export default function pane(props, context) {
     onMounted(() => {
@@ -303,7 +303,7 @@ export default function search(props, context) {
 
   watch响应式更改
 
-  ```
+  ```js
   import {watch} from "@vue/composition-api";
   export default function search(props, context) {
     watch(
@@ -323,7 +323,7 @@ export default function search(props, context) {
 
   独立的computed属性
 
-  ```
+  ```js
   import {computed} from "@vue/composition-api";
   export default function search(props, context) {
     newsComputed: computed(() => {
@@ -338,7 +338,7 @@ export default function search(props, context) {
 
   创建单个对象的响应对象，取值/赋值时需要使用.value
 
-  ```
+  ```js
   const count = ref(0)
   console.log(count.value) // 0
   count.value++
@@ -348,7 +348,7 @@ export default function search(props, context) {
 
   从组合式函数返回响应式对象
 
-  ```
+  ```js
   const state = reactive({
     foo: 1,
     bar: 2

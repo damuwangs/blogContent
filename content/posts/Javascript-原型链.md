@@ -15,7 +15,7 @@ categories: JavaScript
 
   使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。换句话说不必在构造函数中定义对象实例的信息，而是可以将这些信息直接添加到原型对象中
 
-  ```
+  ```js
   function Person() {}
   
   Person.prototype.name = 'Nicholas'
@@ -49,7 +49,7 @@ categories: JavaScript
 
   虽然可以通过对象实例访问保存在原型中的值，但却不能通过对象实例重写原型的值。如果我们在实例中添加了一个属性，而该属性与实例原型中的一个属性同名，那我们就在实例中创建该属性，该属性将会屏蔽原型中的那个属性
 
-  ```
+  ```js
   function Person() {}
   
   Person.prototype.name = 'Nicholas'
@@ -77,7 +77,7 @@ categories: JavaScript
 
   每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针。那么，假如我们让原型对象等于另一个类型的实例，结果会怎么样呢？显然，此时的原型对象将包含一个指向另一个原型的指针，相应的，另一个原型中也包含指向另一个构造函数的指针。假如另一个原型又是另一个类型的实例，那么上述关系依然成立，如此层层递进，就够成了实例与原型的链条。这就是所谓原型链的基本概念
 
-  ```
+  ```js
   function SuperType() {
       this.property = 'SuperType'
   }
@@ -127,7 +127,7 @@ categories: JavaScript
 
   1. 子类型有时候需要重写超类型中的某个方法，或者添加超类型中不存在的某个方法。但不管怎样，给原型添加方法的代码一定要放在替换原型的语句之后
 
-     ```
+     ```js
      function SuperType() {
          this.property = 'SuperType'
      }
@@ -162,7 +162,7 @@ categories: JavaScript
 
   2. 通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链
 
-     ```
+     ```js
      function SuperType() {
          this.property = 'SuperType'
      }
@@ -193,7 +193,7 @@ categories: JavaScript
 
   3. 在通过原型实现继承时，原型实际上会变成另一个类型的实例。于是原先的实例属性也就顺理成章的变成了现在的原型属性了
 
-     ```
+     ```js
      function SuperType() {
          this.color = ['red','blue','green']
      }

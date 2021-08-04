@@ -23,7 +23,7 @@ categories: JavaScript
 
 - ### 非立即执行版
 
-  ```
+  ```html
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -75,7 +75,7 @@ categories: JavaScript
 
 - ### 立即执行版
 
-  ```
+  ```html
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -141,7 +141,7 @@ categories: JavaScript
 
 ## 实例
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -22,7 +22,7 @@ categories: 环境搭建
 
 - 在系统变量Path后面追加一条，为hugo.exe的解压地址我的在D盘
 
-  ```
+  ```sh
   D:\hugo_0.83.1_Windows-64bit
   ```
 
@@ -30,7 +30,7 @@ categories: 环境搭建
 
 - 通过hugo命令创建站点目录并切换到该目录
 
-  ```
+  ```sh
   hugo new site hugo-blog
   cd hugo-blog
   ```
@@ -61,7 +61,7 @@ categories: 环境搭建
 
 - 启动 Hugo 预览服务器，构建站点内容到内存中并在检测到文件更改后重新渲染
 
-  ```
+  ```sh
   hugo server
   ```
 
@@ -103,7 +103,7 @@ categories: 环境搭建
 
 - 进入站点根目录执行命令执行编译，创建public目录生成静态html项目
 
-  ```
+  ```sh
   # 默认在当前文件夹下生成public文件夹
   hugo
   # 参数d可以自定义生成路径

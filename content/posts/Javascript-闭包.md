@@ -15,7 +15,7 @@ categories: JavaScript
 
   Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量
 
-  ```
+  ```js
   var n=999
   function f1(){
   	alert(n)
@@ -25,7 +25,7 @@ categories: JavaScript
 
   在函数外部无法读取函数内的局部变量
 
-  ```
+  ```js
   function f1(){
   	var n=999
   }
@@ -40,7 +40,7 @@ categories: JavaScript
 
   所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁，f2函数，就是闭包
 
-  ```
+  ```js
   function f1(){
   	var n=999
   	function f2(){
@@ -72,7 +72,7 @@ categories: JavaScript
 
   我们知道所有的变量，如果不加上var关键字，则默认的会添加到全局对象的属性上去，这样的临时变量加入全局对象有很多坏处，比如：别的函数可能误用这些变量；造成全局对象过于庞大，影响访问速度(因为变量的取值是需要从原型链上遍历的)。除了每次使用变量都是用var关键字外，我们在实际情况下经常遇到这样一种情况，即有的函数只需要执行一次，其内部变量无需维护，比如UI的初始化，那么我们可以使用闭包
 
-  ```
+  ```js
   var data= {    
       table : [],    
       tree : {}    
@@ -95,7 +95,7 @@ categories: JavaScript
 
   我们开发中会碰到很多情况，设想我们有一个处理过程很耗时的函数对象，每次调用都会花费很长时间，那么我们就需要将计算出来的值存储起来，当调用这个函数的时候，首先在缓存中查找，如果找不到，则进行计算，然后更新缓存并返回值，如果找到了，直接返回查找到的值即可。闭包正是可以做到这一点，因为它不会释放外部的引用，从而函数内部的值可以得以保留
 
-  ```
+  ```js
   var CachedSearchBox = (function(){    
       var cache = {},count = [];    
       return {    
@@ -120,7 +120,7 @@ categories: JavaScript
 
 - ## 减少全局变量的污染
 
-  ```
+  ```js
   //abc为外部匿名函数的返回值
   var abc = (function(){      
       var a = 1
@@ -137,7 +137,7 @@ categories: JavaScript
 
 - ## 封装
 
-  ```
+  ```js
   var person = function(){    
       //变量作用域为函数内部，外部无法访问    
       var name = "default";              
@@ -164,7 +164,7 @@ categories: JavaScript
 
 - ## 实现类和继承
 
-  ```
+  ```js
   function Person(){    
       var name = "default"       
       return {    
@@ -198,7 +198,7 @@ categories: JavaScript
 
 - ## setTimeout传参
 
-  ```
+  ```js
   setTimeout(function(param){
       alert(param)
   },1000)
@@ -215,7 +215,7 @@ categories: JavaScript
 
 - ## 为节点循环绑定click事件
 
-  ```
+  ```js
   function count() {
       var arr = []
       for (var i=1; i<=3; i++) {
@@ -236,7 +236,7 @@ categories: JavaScript
 
   你可能认为调用f1()，f2()和f3()结果应该是 `1 4 9`， 但实际结果是：
 
-  ```
+  ```js
   f1() // 16
   f2() // 16
   f3() // 16
@@ -248,7 +248,7 @@ categories: JavaScript
 
   如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变：
 
-  ```
+  ```js
   function count() {
       var arr = []
       for (var i=1; i<=3; i++) {
@@ -273,7 +273,7 @@ categories: JavaScript
 
   注意这里用了一个“创建一个匿名函数并立刻执行”的语法：
 
-  ```
+  ```js
   (function (x) {
       return x * x
   })(3) // 9

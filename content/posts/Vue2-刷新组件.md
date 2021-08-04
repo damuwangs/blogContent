@@ -14,7 +14,7 @@ categories: VUE
 
 1. 修改app.vue，利用 v-if 可以刷新页面的属性，同时使用 provide 和 inject 将祖先节点的数据传递给子代节点
 
-   ```
+   ```vue
    <template>
        <div id="app">
            <router-view v-if="isRouterAlive"></router-view>
@@ -50,7 +50,7 @@ categories: VUE
 
 2. 在要刷新的子路由页面引入inject,然后执行reload事件即可刷新页面
 
-   ```
+   ```js
    export default {    
        inject:['reload'],
        data() {
@@ -66,7 +66,7 @@ categories: VUE
 
 ## forceUpdate
 
-```
+```js
 export default {
     methods: {
         handleUpdateClick() {
@@ -86,7 +86,7 @@ export default {
 
 key-changing的原理很简单，vue使用`key`标记组件身份，当`key`改变时就是释放原始组件，重新加载新的组件
 
-```
+```vue
 <template>
     <div>
         <!-- 父组件 -->
@@ -125,14 +125,14 @@ export default {
 
 - main.js
 
-  ```
+  ```js
   // 给Vue函数添加一个原型属性$eventHub
   Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
   ```
 
 - 页面A
 
-  ```
+  ```js
   // 一般情况下为了避免重名需要给事件名后面加唯一标记
   let timestamp = Date.parse(new Date())
   // 通过路由传参将timestamp传给目标页面
@@ -143,7 +143,7 @@ export default {
 
 - 页面B
 
-  ```jsp
+  ```js
   // 接受路由参数
   let timestamp = this.$route.query.timestamp
   // 接收全局事件
