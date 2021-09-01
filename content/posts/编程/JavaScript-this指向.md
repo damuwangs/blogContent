@@ -161,7 +161,7 @@ a.func2()            // Cherry
     a.func2()            // Cherry
 ```
 
-# apply、call、bind区别
+## apply、call、bind区别
 
 其实 apply 和 call 基本类似，他们的区别只是传入的参数不同。所以 apply 和 call 的区别是 call 方法接受的是若干个参数列表，而 apply 接收的是一个包含多个参数的数组
 
