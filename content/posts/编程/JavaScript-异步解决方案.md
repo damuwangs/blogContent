@@ -257,7 +257,7 @@ Promise.all([p1,p3,p2]).then((result) => {
 
 顾名思义，Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态
 
-```
+```js
 let p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('success')
@@ -279,9 +279,244 @@ Promise.race([p1, p2]).then((result) => {
 
 # Generator/yield
 
+Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同，Generator 最大的特点就是可以控制函数的执行。
+
+- 语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态
+- Generator 函数除了状态机，还是一个遍历器对象生成函数
+- 可暂停函数, yield可暂停，next方法可启动，每次返回的是yield后的表达式结果
+- yield表达式本身没有返回值，或者说总是返回undefined。next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值
+
+例1
+
+```js
+function *foo(x) {
+  let y = 2 * (yield (x + 1))
+  let z = yield (y / 3)
+  return (x + y + z)
+}
+let it = foo(5)
+console.log(it.next())   // => {value: 6, done: false}
+console.log(it.next(12)) // => {value: 8, done: false}
+console.log(it.next(13)) // => {value: 42, done: true}
+```
+
+- 首先 Generator 函数调用和普通函数不同，它会返回一个迭代器
+
+- 当执行第一次 next 时，传参会被忽略，并且函数暂停在 yield (x + 1) 处，所以返回 5 + 1 = 6
+
+- 当执行第二次 next 时，传入的参数12就会被当作上一个yield表达式的返回值，如果你不传参，yield 永远返回 undefined。此时 let y = 2 * 12，所以第二个 yield 等于 2 * 12 / 3 = 8
+
+- 当执行第三次 next 时，传入的参数13就会被当作上一个yield表达式的返回值，所以 z = 13, x = 5, y = 24，相加等于 42
+
+例2：有三个本地文件，分别1.txt,2.txt和3.txt，内容都只有一句话，下一个请求依赖上一个请求的结果，想通过Generator函数依次调用三个文件
+
+```html
+//1.txt文件
+2.txt
+```
+
+```html
+//2.txt文件
+3.txt
+```
+
+```html
+//3.txt文件
+结束
+```
+
+```js
+let fs = require('fs')
+function read(file) {
+  return new Promise(function(resolve, reject) {
+    fs.readFile(file, 'utf8', function(err, data) {
+      if (err) reject(err)
+      resolve(data)
+    })
+  })
+}
+function* r() {
+  let r1 = yield read('./1.txt')
+  let r2 = yield read(r1)
+  let r3 = yield read(r2)
+  console.log(r1)
+  console.log(r2)
+  console.log(r3)
+}
+let it = r()
+let { value, done } = it.next()
+value.then(function(data) { // value是个promise
+  console.log(data) //data=>2.txt
+  let { value, done } = it.next(data)
+  value.then(function(data) {
+    console.log(data) //data=>3.txt
+    let { value, done } = it.next(data)
+    value.then(function(data) {
+      console.log(data) //data=>结束
+    })
+  })
+})
+```
+
+输出结果：
+
+```html
+2.txt
+3.txt
+结束
+```
+
+从上例中我们看出手动迭代`Generator` 函数很麻烦，实现逻辑有点绕，而实际开发一般会配合 `co` 库去使用
+
+co是一个为Node.js和浏览器打造的基于生成器的流程控制工具，借助于Promise，你可以使用更加优雅的方式编写非阻塞代码
+
+安装co库只需
+
+```bash
+npm install co
+```
+
+上面例子只需两句话就可以轻松实现
+
+```js
+function* r() {
+  let r1 = yield read('./1.txt')
+  let r2 = yield read(r1)
+  let r3 = yield read(r2)
+  console.log(r1)
+  console.log(r2)
+  console.log(r3)
+}
+let co = require('co')
+co(r()).then(function(data) {
+  console.log(data)
+})
+```
+
+输出结果：
+
+```html
+2.txt
+3.txt
+结束
+undefined
+```
+
+例3：我们可以通过 Generator 函数解决回调地狱的问题，可以把之前的回调地狱例子改写为如下代码：
+
+```js
+function *fetch() {
+    yield ajax(url, () => {})
+    yield ajax(url1, () => {})
+    yield ajax(url2, () => {})
+}
+let it = fetch()
+let result1 = it.next()
+let result2 = it.next()
+let result3 = it.next()
+```
+
+特点：可以控制函数的执行，可以配合 co 函数库使用
+
 # Async/await
 
+## Async/Await简介
 
+使用async/await，你可以轻松地达成之前使用生成器和co函数所做到的工作,它有如下特点：
+
+- async/await是基于Promise实现的，它不能用于普通的回调函数。
+- async/await与Promise一样，是非阻塞的。
+- async/await使得异步代码看起来像同步代码，这正是它的魔力所在。
+
+一个函数如果加上 async ，那么该函数就会返回一个 Promise
+
+```js
+async function async1() {
+  return "1"
+}
+console.log(async1()) // -> Promise {<resolved>: "1"}
+```
+
+Generator函数依次调用三个文件那个例子用async/await写法，只需几句话便可实现
+
+```js
+let fs = require('fs')
+function read(file) {
+  return new Promise(function(resolve, reject) {
+    fs.readFile(file, 'utf8', function(err, data) {
+      if (err) reject(err)
+      resolve(data)
+    })
+  })
+}
+async function readResult(params) {
+  try {
+    let p1 = await read(params, 'utf8')//await后面跟的是一个Promise实例
+    let p2 = await read(p1, 'utf8')
+    let p3 = await read(p2, 'utf8')
+    console.log('p1', p1)
+    console.log('p2', p2)
+    console.log('p3', p3)
+    return p3
+  } catch (error) {
+    console.log(error)
+  }
+}
+readResult('1.txt').then( // async函数返回的也是个promise
+  data => {
+    console.log(data)
+  },
+  err => console.log(err)
+)
+```
+
+输出结果：
+
+```html
+p1 2.txt
+p2 3.txt
+p3 结束
+```
+
+## Async/Await并发请求
+
+如果请求两个文件，毫无关系，可以通过并发请求
+
+```js
+let fs = require('fs')
+function read(file) {
+  return new Promise(function(resolve, reject) {
+    fs.readFile(file, 'utf8', function(err, data) {
+      if (err) reject(err)
+      resolve(data)
+    })
+  })
+}
+function readAll() {
+  read1()
+  read2()//这个函数同步执行
+}
+async function read1() {
+  let r = await read('1.txt','utf8')
+  console.log(r)
+}
+async function read2() {
+  let r = await read('2.txt','utf8')
+  console.log(r)
+}
+readAll() 
+```
+
+输出结果：
+
+```html
+2.txt 
+3.txt
+```
+
+优点：代码清晰，不用像 Promise 写一大堆 then 链，处理了回调地狱的问题
+
+缺点：await 将异步代码改造成同步代码，如果多个异步操作没有依赖性而使用 await 会导致性能上的降低
 
 # 参考资料
 
