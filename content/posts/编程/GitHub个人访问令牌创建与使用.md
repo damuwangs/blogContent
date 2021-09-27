@@ -7,7 +7,7 @@ categories: 环境搭建
 
 # 前言
 
-[2020 年 7 月](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/)，Github官方宣布对所有经过身份验证的 Git 操作，使用基于令牌的身份验证（例如，个人访问、OAuth 或 GitHub 应用程序安装令牌）。
+[2020 年 7 月](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/)，GitHub官方宣布对所有经过身份验证的 Git 操作，使用基于令牌的身份验证（例如，个人访问、OAuth 或 GitHub 应用程序安装令牌）。
 
 **从 2021 年 8 月 13 日开始，将在 GitHub.com 上对 Git 操作进行身份验证时不再接受帐户密码**
 
@@ -47,5 +47,5 @@ categories: 环境搭建
 
 # 参考资料
 
-> [Github创建个人访问令牌教程]([Github创建个人访问令牌教程_这也太南了趴的博客-CSDN博客_github个人访问令牌](https://blog.csdn.net/qq_46941656/article/details/119737804))
+> [GitHub创建个人访问令牌教程]([Github创建个人访问令牌教程_这也太南了趴的博客-CSDN博客_github个人访问令牌](https://blog.csdn.net/qq_46941656/article/details/119737804))
 
