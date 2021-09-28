@@ -14,3 +14,8 @@ categories: DEMO
   ## -[防抖](https://codepen.io/damuwangs/pen/mdmjwre)
 
   ## -[节流](https://codepen.io/damuwangs/pen/jOmpwgv)
+
+- # 方法封装
+
+  ## -[axios封装Http工具类](https://codepen.io/damuwangs/pen/ExXGmww)
+
