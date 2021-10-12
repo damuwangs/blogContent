@@ -11,6 +11,8 @@ categories: DEMO
 
   ## -[日期计算](https://codepen.io/damuwangs/pen/vYmrQKN?editors=0012)
 
+  ## -[获取当前日期00:00:00到23:59:59](https://codepen.io/damuwangs/pen/porvWGR)
+
 - # 校验
 
   ## -[身份证校验](https://codepen.io/damuwangs/pen/jOmKdqq?editors=0012)
