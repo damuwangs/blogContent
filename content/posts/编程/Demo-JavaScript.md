@@ -1,5 +1,5 @@
 ---
-title: "JavaScript-Demo"
+title: "Demo-JavaScript"
 date: "2021-08-02"
 tags: [编程]
 categories: DEMO
