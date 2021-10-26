@@ -11,11 +11,11 @@ categories: UniApp
 
 参考：[jdk1.8下载与安装教程](https://blog.csdn.net/weixin_44084189/article/details/98966787/)
 
-## android环境
+## Android环境
 
 1. 软件下载
 
-- 进入https://www.androiddevtools.cn/下载SDK Tools
+- [下载SDK Tools](https://www.androiddevtools.cn)
 
   ![](/img/UniApp-原生插件开发/SDKTools.png)
 
@@ -330,28 +330,86 @@ dcRichAlert.show({
 
 ## AndroidStudio调试
 
-- 生成uniapp本地打包App资源
-- 把APP资源文件放入到UniPlugin-Hello-AS工程下
+这种用于上层调用已完成，调试底层android插件
+
+- 点击发行—>原生APP-本地打包—>生成本地打包App资源
+
+  ![](/img/UniApp-原生插件开发/生成本地打包App资源.png)
+
+  编译成功在unpackage目录下生成资源
+
+  ![](/img/UniApp-原生插件开发/本地打包成功.png)
+
+- 把APP资源文件放入到UniPlugin-Hello-AS工程下app  Module根目录assets/apps目录下
+
+  ![](/img/UniApp-原生插件开发/导入AndroidStudio.png)
+
 - appid注意 一定要统一否则会导致应用无法正常运行
+
+  以dcloud_control.xml配置的appid为准
+
+  ![](/img/UniApp-原生插件开发/AppID一致性.png)
+
+- 配置好运行项目即可
 
 ## HbuilderX调试
 
-- 生成插件的aar并放入到android目录下
-- 创建package.json文件并填写必要的信息。放入到android目录下
-- 创建libs文件夹。并放入到android目录下
-- 将插件依赖的aar文件放入到插件android目录下
-- 将原生插件开发完成，按上图的格式配置到uni-app项目下的“nativeplugins”目录
+这种用于底层插件开发完成，调试上层uniapp调用
+
+- androidStudio编译成功，生成aar
+
+  ![](/img/UniApp-原生插件开发/生成aar.png)
+
+- 创建[package.json](https://nativesupport.dcloud.net.cn/NativePlugin/course/package)文件并填写必要的信息
+
+  ```js
+  {
+  	"name": "RichAlert",// 插件名称
+  	"id": "DCloud-RichAlert",// 插件标识，需要保证唯一性
+  	"version": "0.1.3",// 插件版本号
+  	"description": "示例插件",// 插件描述信息
+  	"_dp_type":"nativeplugin",
+  	"_dp_nativeplugin":{
+  		"android": {
+  			"plugins": [
+  				{
+  					"type": "module",// 根据上文插件类型填写module或component
+  					"name": "DCloud-RichAlert",// 注册插件的名称, 注意：module 的 name 必须以插件id为前缀或和插件id相同
+  					"class": "uni.dcloud.io.uniplugin_richalert.RichAlertModule"// Android项目中dcloud_uniplugins.json中配置的类名
+  				}
+  			],
+  			"integrateType": "aar",// 可取值aar|jar
+  			"minSdkVersion" : 16// 支持的Android最低版本，如21
+  		}
+  	}
+  }
+  ```
+
+- 创建插件文件夹，目录格式如下
+
+  Dcloud-RichAlert为自定义插件名称，aar文件放在android目录下
+
+  ![](/img/UniApp-原生插件开发/插件目录.png)
+
+- 配置到uni-app项目下的“nativeplugins”目录
+
+  ![](/img/UniApp-原生插件开发/插件引入.png)
+
 - 在manifest.json文件的“App原生插件配置”项下点击“选择本地插件”，在列表中选择需要打包生效的插件
 
-## 集成uni-app项目
+  ![](/img/UniApp-原生插件开发/加载插件.png)
 
-## 插件编译及配置
+- 点击运行—>运行到手机或模拟器—>制作自定义调试基座
 
-## 插件引入
+  **APPID与开发者中心的相同**
 
-## 自定义调试基座
+  ![](/img/UniApp-原生插件开发/制作自定义基座.png)
 
-## 插件使用
+  制作成功输出以下内容
+
+  ![](/img/UniApp-原生插件开发/自定义基座生成.png)
+
+- uniapp打包时需要点击运行—>运行到手机或模拟器—>运行基座选择—>自定义调试基座
 
 # 注意
 
@@ -361,6 +419,19 @@ dcRichAlert.show({
 
 1. 项目初始化时如果下方一直提示gradle下载中,则可以手动下载放到gradle安装目录(默认为：C:\Users\Administrator\.gradle\wrapper\dists)
    替换后重启android Studio正常编译项目
+   
+1. 关于uniapp自定义基座
+
+   使用HBuilder/HBuilderX开发应用时，可在手机/模拟器上查看运行效果，点击菜单栏“运行”->“运行到手机或模拟器”使用。
+   此功能会在手机/模拟器上安装“HBuilder”应用（或者叫HBuilder标准运行基座），在应用开发过程中HBuilder/HBuilderX会将应用资源实时同步到基座并刷新，从而实时查看到修改效果。
+   上述HBuilder标准运行基座，是由DCloud提前打包好的，使用的是DCloud申请的第三方SDK配置，manifest里大多数设置都无法动态生效，需要再次打包才可以生效。
+   例如微信分享，不管开发者在manifest里如何配置，使用HBuilder标准运行基座分享后显示的来源一定是“HBuilder”。
+   但开发者真实打包后的手机应用又无法通过运行方式来调试，这导致涉及manifest配置的内容调测变的很困难。
+
+   为了解决manifest配置相关调试的便利性问题，DCloud提供了制作自定义运行基座的功能，也就是开发者可类似DCloud一样，自己做一个运行基座，里面使用的是自定义的manifest配置。
+   开发者打包了自定义运行基座，就可以把这个基座运行到手机/Android模拟器上，进行日志查看。
+
+   **在uni-app应用中调用uni-app原生插件也必须使用自定义调试基座**
 
 # 参考资料
 
