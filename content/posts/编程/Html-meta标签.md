@@ -55,7 +55,7 @@ meta的必须属性是content，并不是说meta标签里一定要有content，�
 <meta name="renderer" content="webkit">
 ```
 
-告诉浏览器，用webkit内核进行解析，前提是浏览器有webkit内核才可以。当然看到这个你可能会有疑问，这个renderer是从哪里冒出来的？这个就是在对应的浏览器的开发文档里就会有表明的，例如这个renderer是在360浏览器里说明的。[360浏览器内核控制Meta标签说明文档](http://se.360.cn/v6/help/meta.html)
+这个meta标签的意思就是告诉浏览器，用webkit内核进行解析，前提是浏览器有webkit内核才可以。当然看到这个你可能会有疑问，这个renderer是从哪里冒出来的？这个就是在对应的浏览器的开发文档里就会有表明的，例如这个renderer是在360浏览器里说明的。[360浏览器内核控制Meta标签说明文档](http://se.360.cn/v6/help/meta.html)
 
 # meta标签总结
 
