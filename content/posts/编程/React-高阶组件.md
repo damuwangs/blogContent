@@ -6,7 +6,7 @@ categories: React
 
 ---
 
-# 概述
+# 概念
 
 一个高阶组件只是一个包装了另外一个React组件的React组件
 
