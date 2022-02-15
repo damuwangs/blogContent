@@ -5,9 +5,23 @@ tags: [编程]
 categories: DEMO
 ---
 
+- # 规范
+
 - # 组件
 
   ## -[Element-UI表单](https://codepen.io/damuwangs/pen/JjNByBW)
+
+- # 路由
+
+- # 状态
+
+- # 缓存
+
+- # 方法封装
+
+  ## -[axios封装Http工具类](https://codepen.io/damuwangs/pen/ExXGmww)
+
+- # 数据字典
 
 - # 自定义指令
 
@@ -15,7 +29,9 @@ categories: DEMO
 
   ## -[节流](https://codepen.io/damuwangs/pen/jOmpwgv)
 
-- # 方法封装
+- # CSS
 
-  ## -[axios封装Http工具类](https://codepen.io/damuwangs/pen/ExXGmww)
+- # 第三方插件
+
+- # 打包
 
