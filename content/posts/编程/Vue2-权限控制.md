@@ -228,8 +228,3 @@ base.commonFuc(data, this.addFuc.ServiceName, this.addFuc.ApiName).then((res) =>
 
 1. 权限菜单的跳转是根据系统和菜单维护的编号与router中配置的路由匹配的，需要保持一致
 
-# 参考资料
-
-> [Vue.nextTick 的原理和用途](https://segmentfault.com/a/1190000012861862)
->
-

@@ -13,6 +13,8 @@ categories: DEMO
 
 - # 路由
 
+  ## -[Vue-Demo-路由](https://codesandbox.io/s/vue-demo-lu-you-qhgtt)
+
 - # 状态
 
 - # 缓存
