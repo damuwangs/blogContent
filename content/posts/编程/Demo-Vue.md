@@ -15,9 +15,9 @@ categories: DEMO
 
   ## -[Vue-Demo-路由](https://codesandbox.io/s/vue-demo-lu-you-qhgtt)
 
-- # 状态
+- # 状态、缓存
 
-- # 缓存
+  ## -[Vue-Demo-状态、缓存](https://codesandbox.io/s/vue-demo-zhuang-tai-huan-cun-sl8i8z)
 
 - # 方法封装
 

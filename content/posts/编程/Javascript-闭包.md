@@ -97,7 +97,7 @@ categories: JavaScript
 
   ```js
   var CachedSearchBox = (function(){    
-      var cache = {},count = [];    
+      var cache = {}
       return {    
          attachSearchBox : function(dsid){    
   	       //如果结果在缓存中

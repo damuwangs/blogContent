@@ -95,9 +95,7 @@ categories: 环境搭建
 
   这个插件就是在GitHub仓库下载旁边新增了一个加速的按钮，选择国内镜像的仓库地址就不会出现网络超时的问题了
 
-- 插件地址：<https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/mfnkflidjnladnkldfonnaicljppahpg>
-
-  GitHub地址：<https://github.com/fhefh2015/Fast-GitHub>
+- GitHub地址：<https://github.com/fhefh2015/Fast-GitHub>
 
 ## 3、提交和版本同步
 
