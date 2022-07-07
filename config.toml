@@ -16,7 +16,7 @@ theme = "diary"
     lineNumbersInTable = true
     noClasses = true
     # 代码高亮style 参考：https://xyproto.github.io/splash/docs/all.html
-    style = "dracula"
+    style = "friendly"
     tabWidth = 4
 
 [params]
